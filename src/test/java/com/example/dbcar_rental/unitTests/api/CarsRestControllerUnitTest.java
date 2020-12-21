@@ -76,7 +76,6 @@ class CarsRestControllerUnitTest {
 
         mvc.perform(get("/car-rental/cars/{car_id}", 2L))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.description", is("BAD_REQUEST")))
                 .andExpect(jsonPath("$.status", is(400)))
                 .andExpect(jsonPath("$.description", is("BAD_REQUEST")))
                 .andExpect(jsonPath("$.message", is("car id-2 get fail!!!")));
@@ -110,7 +109,6 @@ class CarsRestControllerUnitTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.description", is("BAD_REQUEST")))
-                .andExpect(jsonPath("$.description", is("BAD_REQUEST")))
                 .andExpect(jsonPath("$[*]", hasSize(5)))
                 .andExpect(jsonPath("$.message", is("client id-5 client not exist")));
     }
@@ -130,7 +128,6 @@ class CarsRestControllerUnitTest {
                 .content(request)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.description", is("OK")))
                 .andExpect(jsonPath("$.description", is("OK")))
                 .andExpect(jsonPath("$.message", is("car id-1 edit successful")));
     }
@@ -169,7 +166,6 @@ class CarsRestControllerUnitTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.description", is("OK")))
-                .andExpect(jsonPath("$.description", is("OK")))
                 .andExpect(jsonPath("$.message", is("car id-1 give back successful")));
     }
 
@@ -187,7 +183,6 @@ class CarsRestControllerUnitTest {
                 .content(request)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.description", is("BAD_REQUEST")))
                 .andExpect(jsonPath("$.description", is("BAD_REQUEST")))
                 .andExpect(jsonPath("$.message", is("car id-1 something went wrong")));
     }
@@ -222,7 +217,6 @@ class CarsRestControllerUnitTest {
         mvc.perform(put("/car-rental/cars/rent?car_id=1&client_id=2")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.description", is("BAD_REQUEST")))
                 .andExpect(jsonPath("$.description", is("BAD_REQUEST")))
                 .andExpect(jsonPath("$.message", is("car id-1 rent fail!!!")));
     }

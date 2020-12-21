@@ -1,5 +1,6 @@
 package com.example.dbcar_rental.integrationTests;
 
+import com.example.dbcar_rental.DbCarRentalApplication;
 import com.example.dbcar_rental.entities.Car;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
